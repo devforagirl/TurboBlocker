@@ -1,0 +1,200 @@
+{
+    "extName": {
+        "message": "TurboBlocker - powered by Manifest V3 & declarativeNetRequest"
+    },
+    "extDesc": {
+        "message": "Ultra-lightweight ad blocker with real-time monitoring and rule management."
+    },
+    "tabMonitor": {
+        "message": "Monitoring"
+    },
+    "tabRules": {
+        "message": "Rules"
+    },
+    "btnPause": {
+        "message": "Pause Recording"
+    },
+    "btnResume": {
+        "message": "Start Recording"
+    },
+    "btnClear": {
+        "message": "Clear Logs"
+    },
+    "filterAll": {
+        "message": "All Actions (Block & Allow)"
+    },
+    "filterBlock": {
+        "message": "Block Only"
+    },
+    "filterAllow": {
+        "message": "Allow Only"
+    },
+    "emptyMonitor": {
+        "message": "No logs yet. Start surfing!"
+    },
+    "labelFilter": {
+        "message": "URL Filter"
+    },
+    "labelAction": {
+        "message": "Action"
+    },
+    "labelPriority": {
+        "message": "Priority"
+    },
+    "labelResource": {
+        "message": "Resource Types"
+    },
+    "placeholderFilter": {
+        "message": "Domain or pattern with wildcards"
+    },
+    "actionBlock": {
+        "message": "Block"
+    },
+    "actionAllow": {
+        "message": "Allow"
+    },
+    "actionAllowAll": {
+        "message": "Allow All"
+    },
+    "resMain": {
+        "message": "Main Page"
+    },
+    "resSub": {
+        "message": "Sub Frame"
+    },
+    "resScript": {
+        "message": "Script (JS)"
+    },
+    "resImage": {
+        "message": "Image"
+    },
+    "resStyle": {
+        "message": "Stylesheet"
+    },
+    "resFont": {
+        "message": "Font"
+    },
+    "resXhr": {
+        "message": "XHR/Fetch"
+    },
+    "resPing": {
+        "message": "Ping"
+    },
+    "resBeacon": {
+        "message": "Beacon"
+    },
+    "resWs": {
+        "message": "WebSocket"
+    },
+    "resMedia": {
+        "message": "Media"
+    },
+    "resOther": {
+        "message": "Other"
+    },
+    "btnAddRule": {
+        "message": "Add Dynamic Rule"
+    },
+    "btnExport": {
+        "message": "Export JSON"
+    },
+    "btnImport": {
+        "message": "Import Rules"
+    },
+    "tooltipFilter": {
+        "message": "Syntax Guide:\n* Wildcard: Matches any sequence. Example: *ads*\n|| Domain Anchor: Matches domain and subdomains. Example: ||google.com\n^ Separator: Matches non-alphanumeric chars. Example: google.com^\n| Boundary: Matches start or end of URL. Example: |http://"
+    },
+    "tooltipAction": {
+        "message": "Block: Intercept request.\nAllow: Single exception for current URL.\nAllow All: Whitelist this site for current page session."
+    },
+    "tooltipPriority": {
+        "message": "Conflict Resolution: Higher numbers (1-100) win when multiple rules match. Used for whitelisting."
+    },
+    "tooltipResMain": {
+        "message": "Intercept main page loading."
+    },
+    "tooltipResSub": {
+        "message": "Intercept nested frames (iFrames)."
+    },
+    "tooltipResScript": {
+        "message": "Intercept JavaScript logic."
+    },
+    "tooltipResImage": {
+        "message": "Intercept images."
+    },
+    "tooltipResStyle": {
+        "message": "Intercept CSS styles."
+    },
+    "tooltipResFont": {
+        "message": "Intercept font files."
+    },
+    "tooltipResXhr": {
+        "message": "Intercept AJAX/Fetch data requests."
+    },
+    "tooltipResPing": {
+        "message": "Intercept click tracking reports."
+    },
+    "tooltipResBeacon": {
+        "message": "Intercept departure analytics."
+    },
+    "tooltipResWs": {
+        "message": "Intercept WebSocket connections."
+    },
+    "tooltipResMedia": {
+        "message": "Intercept video/audio streams."
+    },
+    "tooltipResOther": {
+        "message": "Catch-all for other resources."
+    },
+    "emptyRules": {
+        "message": "No rules yet. Use the form above to add one."
+    },
+    "method": {
+        "message": "Method"
+    },
+    "joinRule": {
+        "message": "Join Rule"
+    },
+    "ruleId": {
+        "message": "Rule ID"
+    },
+    "statusEmpty": {
+        "message": "No matching records found."
+    },
+    "alertEmpty": {
+        "message": "Please enter a valid pattern."
+    },
+    "alertDangerous": {
+        "message": "Pattern is too broad, please refine it."
+    },
+    "openPanel": {
+        "message": "Click to open panel"
+    },
+    "justNow": {
+        "message": "just now"
+    },
+    "secondsAgo": {
+        "message": "$1s ago",
+        "placeholders": {
+            "1": {
+                "content": "$1"
+            }
+        }
+    },
+    "minutesAgo": {
+        "message": "$1m ago",
+        "placeholders": {
+            "1": {
+                "content": "$1"
+            }
+        }
+    },
+    "hoursAgo": {
+        "message": "$1h ago",
+        "placeholders": {
+            "1": {
+                "content": "$1"
+            }
+        }
+    }
+}

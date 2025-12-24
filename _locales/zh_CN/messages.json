@@ -1,0 +1,200 @@
+{
+    "extName": {
+        "message": "TurboBlocker - 由 Manifest V3 & declarativeNetRequest API 驱动"
+    },
+    "extDesc": {
+        "message": "基于 DNR 的超轻量广告拦截器，实时监控并管理拦截规则。"
+    },
+    "tabMonitor": {
+        "message": "实时监控"
+    },
+    "tabRules": {
+        "message": "规则管理"
+    },
+    "btnPause": {
+        "message": "暂停记录"
+    },
+    "btnResume": {
+        "message": "开始记录"
+    },
+    "btnClear": {
+        "message": "清除记录"
+    },
+    "filterAll": {
+        "message": "所有动作 (Block & Allow)"
+    },
+    "filterBlock": {
+        "message": "仅拦截 (Block)"
+    },
+    "filterAllow": {
+        "message": "仅放行 (Allow)"
+    },
+    "emptyMonitor": {
+        "message": "暂无拦截记录，开始冲浪吧！"
+    },
+    "labelFilter": {
+        "message": "匹配模式"
+    },
+    "labelAction": {
+        "message": "操作类型"
+    },
+    "labelPriority": {
+        "message": "优先级"
+    },
+    "labelResource": {
+        "message": "资源类型"
+    },
+    "placeholderFilter": {
+        "message": "域名或包含通配符的模式"
+    },
+    "actionBlock": {
+        "message": "拦截"
+    },
+    "actionAllow": {
+        "message": "允许"
+    },
+    "actionAllowAll": {
+        "message": "放行所有"
+    },
+    "resMain": {
+        "message": "主页面"
+    },
+    "resSub": {
+        "message": "子框架"
+    },
+    "resScript": {
+        "message": "脚本 (JS)"
+    },
+    "resImage": {
+        "message": "图片"
+    },
+    "resStyle": {
+        "message": "样式表"
+    },
+    "resFont": {
+        "message": "字体"
+    },
+    "resXhr": {
+        "message": "XHR/Fetch"
+    },
+    "resPing": {
+        "message": "点击跟踪"
+    },
+    "resBeacon": {
+        "message": "离场统计"
+    },
+    "resWs": {
+        "message": "长连接"
+    },
+    "resMedia": {
+        "message": "音视频"
+    },
+    "resOther": {
+        "message": "其他/兜底"
+    },
+    "btnAddRule": {
+        "message": "添加动态规则"
+    },
+    "btnExport": {
+        "message": "导出规则 (JSON)"
+    },
+    "btnImport": {
+        "message": "导入规则"
+    },
+    "tooltipFilter": {
+        "message": "语法参考手册：\n* 万用符: 匹配任意长度字符。示例: *ads* 匹配 ads.com, example.com/ads/js\n|| 域名锚点: 匹配域名及子域名。示例: ||google.com 匹配 google.com, www.google.com\n^ 分隔符: 匹配非字母数字字符(如 /、?、:)，确保域名完全匹配。示例: example.com^ 匹配 example.com/\n| 起止锚点: 匹配URL的绝对开头或结尾。示例: |http:// 仅匹配以 http 开头"
+    },
+    "tooltipAction": {
+        "message": "拦截 (Block): 直接截断请求。\n允许 (Allow): 针对当前 URL 的单次特赦。\n放行所有 (Allow All): 将此网站设为白名单，该页面下后续所有请求均不再拦截。"
+    },
+    "tooltipPriority": {
+        "message": "冲突裁决：当多条规则同时命中某个请求时，数字越大（1-100）的规则越优先。常用于大范围拦截中单独放行特定地址。"
+    },
+    "tooltipResMain": {
+        "message": "拦截整个网页的加载。如果你想彻底封禁某个网站，勾选此项。"
+    },
+    "tooltipResSub": {
+        "message": "拦截页面内的内嵌小窗口（如 IFRAME）。很多侧边栏广告是以此形式存在的。"
+    },
+    "tooltipResScript": {
+        "message": "拦截 JavaScript 脚本。这是拦截动态广告、追踪器和反拦截代码的核心。"
+    },
+    "tooltipResImage": {
+        "message": "拦截网页中的图片资源。"
+    },
+    "tooltipResStyle": {
+        "message": "拦截 CSS 样式表，这可能会影响网页的排版布局。"
+    },
+    "tooltipResFont": {
+        "message": "拦截网页加载的自定义字体文件。"
+    },
+    "tooltipResXhr": {
+        "message": "拦截通过 AJAX 或 Fetch 发出的后台请求。现代网页加载数据和广告信息的首选方式。"
+    },
+    "tooltipResPing": {
+        "message": "拦截链接点击时的跟踪报告。专门针对搜集用户点击偏好的行为。"
+    },
+    "tooltipResBeacon": {
+        "message": "拦截网页在关闭或切换时发出的最后一次数据上报。"
+    },
+    "tooltipResWs": {
+        "message": "拦截 WebSocket 长连接。常用于实时广告推送或隐蔽的挖矿脚本。"
+    },
+    "tooltipResMedia": {
+        "message": "拦截视频和音频流。"
+    },
+    "tooltipResOther": {
+        "message": "兜底选项：拦截 Chrome 无法明确归类的其他所有类型资源。"
+    },
+    "emptyRules": {
+        "message": "暂无动态规则。请通过上方表单添加。"
+    },
+    "method": {
+        "message": "方法"
+    },
+    "joinRule": {
+        "message": "加入规则"
+    },
+    "ruleId": {
+        "message": "规则 ID"
+    },
+    "statusEmpty": {
+        "message": "暂无符合条件的记录"
+    },
+    "alertEmpty": {
+        "message": "请输入有效的匹配模式。"
+    },
+    "alertDangerous": {
+        "message": "模式过于宽泛，会导致所有流量被拦截，请细化模式。"
+    },
+    "openPanel": {
+        "message": "点击打开拦截面板"
+    },
+    "justNow": {
+        "message": "刚刚"
+    },
+    "secondsAgo": {
+        "message": "$1 秒前",
+        "placeholders": {
+            "1": {
+                "content": "$1"
+            }
+        }
+    },
+    "minutesAgo": {
+        "message": "$1 分钟前",
+        "placeholders": {
+            "1": {
+                "content": "$1"
+            }
+        }
+    },
+    "hoursAgo": {
+        "message": "$1 小时前",
+        "placeholders": {
+            "1": {
+                "content": "$1"
+            }
+        }
+    }
+}

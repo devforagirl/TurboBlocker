@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+      --primary-color: #d32f2f;
+      --bg-color: #f9f9f9;
+      --card-bg: #ffffff;
+      --text-main: #333;
+      --text-dim: #666;
+      --border-color: #eee;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-main);
+    }
+
+    .sticky-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+    }
+
+    .sticky-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .tab {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text-dim);
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab.active {
+      color: var(--primary-color);
+      border-bottom-color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .content-section {
+      padding: 15px;
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    /* Monitor Styles */
+    .log-item {
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .domain {
+      font-weight: bold;
+      font-size: 13px;
+      word-break: break-all;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .meta {
+      font-size: 12px;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .count {
+      background: #fee2e2;
+      color: #b91c1c;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .full-url {
+      display: none;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #ddd;
+    }
+
+    .detail-row {
+      font-size: 11px;
+      color: #777;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    .detail-label {
+      font-weight: bold;
+      color: #555;
+      margin-right: 4px;
+    }
+
+    .log-item.expanded .full-url {
+      display: block;
+    }
+
+    .empty {
+      text-align: center;
+      color: #999;
+      margin-top: 50px;
+    }
+
+    .action-badge {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-left: 8px;
+    }
+
+    .quick-add-btn {
+      padding: 2px 8px;
+      font-size: 10px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .quick-add-btn:hover {
+      background: #2563eb;
+    }
+
+    .action-block {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .action-allow {
+      background: #ecfdf5;
+      color: #065f46;
+    }
+
+    .action-other {
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    /* Rules Editor Styles */
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: var(--text-dim);
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .checkbox-item {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    .checkbox-item input {
+      margin-right: 5px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #b71c1c;
+    }
+
+    .btn-secondary {
+      background: #eee;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .btn-secondary:hover {
+      background: #ddd;
+    }
+
+    .rule-card {
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 15px;
+      border-left: 4px solid #4caf50;
+      position: relative;
+    }
+
+    .rule-card .delete-btn {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: #999;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .rule-card .delete-btn:hover {
+      color: var(--primary-color);
+    }
+
+    .rule-info {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 5px;
+    }
+
+    .rule-title {
+      font-weight: bold;
+      font-size: 14px;
+      padding-right: 25px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Utility classes for JS rendering */
+    .flex-between {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .log-header {
+      margin-bottom: 2px;
+    }
+
+    .log-meta {
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .detail-actions {
+      margin-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rule-secondary-info {
+      font-size: 10px;
+      color: #999;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sticky-wrapper">
+    <div class="tabs">
+      <div class="tab active" data-target="monitor" data-i18n="tabMonitor">实时监控</div>
+      <div class="tab" data-target="rules" data-i18n="tabRules">规则管理</div>
+    </div>
+  </div>
+
+  <!-- 实时监控面板 -->
+  <div id="monitor" class="content-section active">
+    <div style="margin-bottom: 12px;">
+      <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+        <button id="record-toggle" class="btn btn-secondary" style="flex: 1; padding: 6px; font-size: 13px;"
+          data-i18n="btnPause">暂停记录</button>
+        <button id="clear-logs" class="btn btn-secondary" style="flex: 1; padding: 6px; font-size: 13px;"
+          data-i18n="btnClear">清除记录</button>
+      </div>
+      <select id="filter-action-monitor" style="width: 100%; font-size: 13px; padding: 6px;">
+        <option value="all" data-i18n="filterAll">所有动作 (Block & Allow)</option>
+        <option value="block" data-i18n="filterBlock">仅拦截 (Block)</option>
+        <option value="allow" data-i18n="filterAllow">仅放行 (Allow)</option>
+      </select>
+    </div>
+    <div id="log-container">
+      <div class="empty" data-i18n="emptyMonitor">暂无拦截记录，开始冲浪吧！</div>
+    </div>
+  </div>
+
+  <!-- 规则管理面板 -->
+  <div id="rules" class="content-section">
+    <div id="rule-form">
+      <div class="form-group">
+        <label data-i18n="labelFilter" data-i18n-title="tooltipFilter">匹配模式 (URL Filter) &#9432;</label>
+        <input type="text" id="rule-filter" data-i18n-placeholder="placeholderFilter" placeholder="域名或包含通配符的模式">
+      </div>
+
+      <div class="form-group">
+        <div style="display: flex; gap: 10px;">
+          <div style="flex: 2;">
+            <label data-i18n="labelAction" data-i18n-title="tooltipAction">操作类型 (Action) &#9432;</label>
+            <select id="rule-action">
+              <option value="block" data-i18n="actionBlock">拦截 (Block)</option>
+              <option value="allow" data-i18n="actionAllow">允许 (Allow)</option>
+              <option value="allowAllRequests" data-i18n="actionAllowAll">放行所有 (Allow All)</option>
+            </select>
+          </div>
+          <div style="flex: 1;">
+            <label data-i18n="labelPriority" data-i18n-title="tooltipPriority">优先级 &#9432;</label>
+            <input type="number" id="rule-priority" value="1" min="1" max="100">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label data-i18n="labelResource">资源类型 (Resource Types)</label>
+        <div class="checkbox-group" id="resource-types">
+          <div class="checkbox-item" data-i18n-title="tooltipResMain"><input type="checkbox" value="main_frame"><span
+              data-i18n="resMain">主页面</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResSub"><input type="checkbox" value="sub_frame"
+              checked><span data-i18n="resSub">子框架</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResScript"><input type="checkbox" value="script"
+              checked><span data-i18n="resScript">脚本 (JS)</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResImage"><input type="checkbox" value="image"
+              checked><span data-i18n="resImage">图片</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResStyle"><input type="checkbox" value="stylesheet"><span
+              data-i18n="resStyle">样式表</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResFont"><input type="checkbox" value="font"><span
+              data-i18n="resFont">字体</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResXhr"><input type="checkbox" value="xmlhttprequest"
+              checked><span data-i18n="resXhr">XHR/Fetch</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResPing"><input type="checkbox" value="ping" checked><span
+              data-i18n="resPing">点击跟踪</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResBeacon"><input type="checkbox" value="beacon"
+              checked><span data-i18n="resBeacon">离场统计</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResWs"><input type="checkbox" value="websocket"><span
+              data-i18n="resWs">长连接</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResMedia"><input type="checkbox" value="media"><span
+              data-i18n="resMedia">音视频</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResOther"><input type="checkbox" value="other"><span
+              data-i18n="resOther">其他/兜底</span></div>
+        </div>
+      </div>
+
+      <button id="add-rule" class="btn btn-primary" data-i18n="btnAddRule">添加动态规则</button>
+
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button id="export-rules" class="btn btn-secondary" style="flex: 1;" data-i18n="btnExport">导出规则 (JSON)</button>
+        <button id="import-trigger" class="btn btn-secondary" style="flex: 1;" data-i18n="btnImport">导入规则</button>
+      </div>
+      <input type="file" id="import-file" style="display: none;" accept=".json">
+    </div>
+
+
+    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+    <div id="rule-list-container">
+      <!-- 动态规则列表 -->
+      <div class="empty" data-i18n="emptyRules">暂无动态规则。请通过上方表单添加。</div>
+    </div>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+
+</html>

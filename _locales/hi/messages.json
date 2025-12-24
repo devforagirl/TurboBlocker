@@ -1,0 +1,200 @@
+{
+    "extName": {
+        "message": "TurboBlocker - Manifest V3 और DNR द्वारा संचालित"
+    },
+    "extDesc": {
+        "message": "निगरानी और नियम प्रबंधन के साथ एक अल्ट्रा-लाइटवेट विज्ञापन अवरोधक।"
+    },
+    "tabMonitor": {
+        "message": "निगरानी"
+    },
+    "tabRules": {
+        "message": "नियम"
+    },
+    "btnPause": {
+        "message": "रिकॉर्डिंग रोकें"
+    },
+    "btnResume": {
+        "message": "रिकॉर्डिंग शुरू करें"
+    },
+    "btnClear": {
+        "message": "लॉग्स साफ़ करें"
+    },
+    "filterAll": {
+        "message": "सभी क्रियाएं (Black & Allow)"
+    },
+    "filterBlock": {
+        "message": "केवल ब्लॉक (Block)"
+    },
+    "filterAllow": {
+        "message": "केवल अनुमति (Allow)"
+    },
+    "emptyMonitor": {
+        "message": "अभी कोई लॉग नहीं। सर्फिंग शुरू करें!"
+    },
+    "labelFilter": {
+        "message": "यूआरएल फ़िल्टर"
+    },
+    "labelAction": {
+        "message": "क्रिया (Action)"
+    },
+    "labelPriority": {
+        "message": "प्राथमिकता"
+    },
+    "labelResource": {
+        "message": "संसाधन प्रकार"
+    },
+    "placeholderFilter": {
+        "message": "वाइल्डकार्ड के साथ डोमेन या पैटर्न"
+    },
+    "actionBlock": {
+        "message": "ब्लॉक"
+    },
+    "actionAllow": {
+        "message": "अनुमति"
+    },
+    "actionAllowAll": {
+        "message": "सबको अनुमति दें"
+    },
+    "resMain": {
+        "message": "मुख्य पृष्ठ"
+    },
+    "resSub": {
+        "message": "सब फ़्रेम"
+    },
+    "resScript": {
+        "message": "स्क्रिप्ट (JS)"
+    },
+    "resImage": {
+        "message": "छवि (Image)"
+    },
+    "resStyle": {
+        "message": "स्टाइलशीट (CSS)"
+    },
+    "resFont": {
+        "message": "फ़ॉन्ट"
+    },
+    "resXhr": {
+        "message": "XHR/Fetch"
+    },
+    "resPing": {
+        "message": "क्लिक ट्रैकिंग (Ping)"
+    },
+    "resBeacon": {
+        "message": "बीकन (Beacon)"
+    },
+    "resWs": {
+        "message": "वेब्सॉकेट"
+    },
+    "resMedia": {
+        "message": "मीडिया"
+    },
+    "resOther": {
+        "message": "अन्य"
+    },
+    "btnAddRule": {
+        "message": "नियम जोड़ें"
+    },
+    "btnExport": {
+        "message": "JSON निर्यात करें"
+    },
+    "btnImport": {
+        "message": "नियम आयात करें"
+    },
+    "tooltipFilter": {
+        "message": "वाक्यविन्यास मार्गदर्शिका:\n* वाइल्डकार्ड: किसी भी अनुक्रम से मेल खाता है।\n|| डोमेन एंकर: डोमेन और सबडोमेन से मेल खाता है।\n^ विभाजक: गैर-अल्फान्यूमेरिक वर्णों से मेल खाता है।\n| सीमा: यूआरएल की शुरुआत या अंत से मेल खाता है।"
+    },
+    "tooltipAction": {
+        "message": "ब्लॉक: अनुरोध को बाधित करें।\nअनुमति: वर्तमान यूआरएल के लिए एकल अपवाद।\nसबको अनुमति दें: वर्तमान सत्र के लिए वेबसाइट को व्हाइटलिस्ट करें।"
+    },
+    "tooltipPriority": {
+        "message": "द्वंद्व समाधान: उच्च संख्याएं (1-100) जीतती हैं। व्हाइटलिस्टिंग के लिए उपयोग किया जाता है।"
+    },
+    "tooltipResMain": {
+        "message": "मुख्य पृष्ठ लोडिंग को रोकें।"
+    },
+    "tooltipResSub": {
+        "message": "नेस्टेड फ़्रेम (iFrames) को रोकें।"
+    },
+    "tooltipResScript": {
+        "message": "जावास्क्रिप्ट तर्क को रोकें।"
+    },
+    "tooltipResImage": {
+        "message": "छवियों को रोकें।"
+    },
+    "tooltipResStyle": {
+        "message": "CSS स्टाइल को रोकें।"
+    },
+    "tooltipResFont": {
+        "message": "फ़ॉन्ट फ़ाइलों को रोकें।"
+    },
+    "tooltipResXhr": {
+        "message": "AJAX/Fetch अनुरोधों को रोकें।"
+    },
+    "tooltipResPing": {
+        "message": "क्लिक ट्रैकिंग रिपोर्ट को रोकें।"
+    },
+    "tooltipResBeacon": {
+        "message": "बीकन सांख्यिकी को रोकें।"
+    },
+    "tooltipResWs": {
+        "message": "वेब्सॉकेट कनेक्शन को रोकें।"
+    },
+    "tooltipResMedia": {
+        "message": "ऑडियो/वीडियो स्ट्रीम को रोकें।"
+    },
+    "tooltipResOther": {
+        "message": "अन्य संसाधनों के लिए कैच-ऑल।"
+    },
+    "emptyRules": {
+        "message": "अभी कोई नियम नहीं है। जोड़ने के लिए ऊपर दिए गए फॉर्म का उपयोग करें।"
+    },
+    "method": {
+        "message": "तरीका"
+    },
+    "joinRule": {
+        "message": "नियम में जोड़ें"
+    },
+    "ruleId": {
+        "message": "नियम आईडी"
+    },
+    "statusEmpty": {
+        "message": "कोई मेल खाने वाला रिकॉर्ड नहीं मिला।"
+    },
+    "alertEmpty": {
+        "message": "कृपया एक वैध पैटर्न दर्ज करें।"
+    },
+    "alertDangerous": {
+        "message": "पैटर्न बहुत विस्तृत है, कृपया इसे सुधारें।"
+    },
+    "openPanel": {
+        "message": "पैनल खोलने के लिए क्लिक करें"
+    },
+    "justNow": {
+        "message": "अभी-अभी"
+    },
+    "secondsAgo": {
+        "message": "$1 सेकंड पहले",
+        "placeholders": {
+            "1": {
+                "content": "$1"
+            }
+        }
+    },
+    "minutesAgo": {
+        "message": "$1 मिनट पहले",
+        "placeholders": {
+            "1": {
+                "content": "$1"
+            }
+        }
+    },
+    "hoursAgo": {
+        "message": "$1 घंटे पहले",
+        "placeholders": {
+            "1": {
+                "content": "$1"
+            }
+        }
+    }
+}
