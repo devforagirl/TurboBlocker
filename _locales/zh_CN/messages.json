@@ -93,16 +93,16 @@
         "message": "其他/兜底"
     },
     "btnAddRule": {
-        "message": "添加动态规则"
+        "message": "添加规则"
     },
     "btnExport": {
-        "message": "导出规则 (JSON)"
+        "message": "导出规则"
     },
     "btnImport": {
         "message": "导入规则"
     },
     "tooltipFilter": {
-        "message": "语法参考手册：\n* 万用符: 匹配任意长度字符。示例: *ads* 匹配 ads.com, example.com/ads/js\n|| 域名锚点: 匹配域名及子域名。示例: ||google.com 匹配 google.com, www.google.com\n^ 分隔符: 匹配非字母数字字符(如 /、?、:)，确保域名完全匹配。示例: example.com^ 匹配 example.com/\n| 起止锚点: 匹配URL的绝对开头或结尾。示例: |http:// 仅匹配以 http 开头"
+        "message": "DNR 语法参考：\n*  - 通配符：匹配任意字符序列。\n|| - 域名锚点：匹配指定域名及其所有子域名（如 ||example.com 匹配 example.com 和 ads.example.com）。\n^  - 分隔符：匹配任何非字母数字字符（如 / ? :），确保域名在该处结束，防止部分匹配。\n|  - 边界锚点：匹配 URL 的绝对开头（|http://）或绝对结尾（ads.js|）。\n示例：||doubleclick.net^ 可以可靠地拦截该域名及其子域下的所有请求。"
     },
     "tooltipAction": {
         "message": "拦截 (Block): 直接截断请求。\n允许 (Allow): 针对当前 URL 的单次特赦。\n放行所有 (Allow All): 将此网站设为白名单，该页面下后续所有请求均不再拦截。"
@@ -167,6 +167,9 @@
     "alertDangerous": {
         "message": "模式过于宽泛，会导致所有流量被拦截，请细化模式。"
     },
+    "alertNoResource": {
+        "message": "请至少选择一种资源类型。"
+    },
     "openPanel": {
         "message": "点击打开拦截面板"
     },
@@ -196,5 +199,14 @@
                 "content": "$1"
             }
         }
+    },
+    "importSuccess": {
+        "message": "导入成功！"
+    },
+    "importError": {
+        "message": "导入失败: "
+    },
+    "addError": {
+        "message": "添加失败: "
     }
 }

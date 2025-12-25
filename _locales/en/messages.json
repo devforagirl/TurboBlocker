@@ -93,16 +93,16 @@
         "message": "Other"
     },
     "btnAddRule": {
-        "message": "Add Dynamic Rule"
+        "message": "Add Rule"
     },
     "btnExport": {
-        "message": "Export JSON"
+        "message": "Export Rules"
     },
     "btnImport": {
         "message": "Import Rules"
     },
     "tooltipFilter": {
-        "message": "Syntax Guide:\n* Wildcard: Matches any sequence. Example: *ads*\n|| Domain Anchor: Matches domain and subdomains. Example: ||google.com\n^ Separator: Matches non-alphanumeric chars. Example: google.com^\n| Boundary: Matches start or end of URL. Example: |http://"
+        "message": "DNR Syntax Guide:\n*  - Wildcard: Matches any string of characters.\n|| - Domain anchor: Matches the domain and all its subdomains. (e.g., ||example.com matches example.com and ads.example.com)\n^  - Separator: Matches any non-alphanumeric character (e.g., / ? :), ensuring the domain ends exactly there.\n|  - Boundary anchor: Matches the start (|http://) or end (ads.js|) of a URL.\nExample: ||doubleclick.net^ blocks the domain and its subdomains reliably."
     },
     "tooltipAction": {
         "message": "Block: Intercept request.\nAllow: Single exception for current URL.\nAllow All: Whitelist this site for current page session."
@@ -167,6 +167,9 @@
     "alertDangerous": {
         "message": "Pattern is too broad, please refine it."
     },
+    "alertNoResource": {
+        "message": "Please select at least one Resource Type."
+    },
     "openPanel": {
         "message": "Click to open panel"
     },
@@ -196,5 +199,14 @@
                 "content": "$1"
             }
         }
+    },
+    "importSuccess": {
+        "message": "Import successful!"
+    },
+    "importError": {
+        "message": "Import failed: "
+    },
+    "addError": {
+        "message": "Add failed: "
     }
 }

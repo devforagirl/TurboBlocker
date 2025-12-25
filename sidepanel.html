@@ -255,31 +255,59 @@
     }
 
     .rule-card .delete-btn {
-      position: absolute;
-      right: 10px;
-      top: 10px;
       color: #999;
       cursor: pointer;
       font-size: 18px;
+      margin-left: 8px;
     }
 
     .rule-card .delete-btn:hover {
       color: var(--primary-color);
     }
 
+    .rule-card .toggle-btn {
+      color: #999;
+      cursor: pointer;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .rule-card .toggle-btn.paused:hover {
+      color: #4caf50;
+    }
+
+    .rule-card .toggle-btn.active:hover {
+      color: #f44336;
+    }
+
+    .rule-card.is-paused {
+      opacity: 0.6;
+      border-left-color: #ccc;
+    }
+
     .rule-info {
       font-size: 12px;
       color: var(--text-dim);
-      margin-top: 5px;
+      margin-top: 4px;
     }
 
     .rule-title {
       font-weight: bold;
       font-size: 14px;
-      padding-right: 25px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      cursor: pointer;
+      margin-bottom: 4px;
+    }
+
+    .rule-title:hover {
+      text-decoration: underline;
+    }
+
+    .rule-actions {
+      display: flex;
+      align-items: center;
     }
 
     /* Utility classes for JS rendering */
@@ -332,9 +360,9 @@
           data-i18n="btnClear">清除记录</button>
       </div>
       <select id="filter-action-monitor" style="width: 100%; font-size: 13px; padding: 6px;">
-        <option value="all" data-i18n="filterAll">所有动作 (Block & Allow)</option>
-        <option value="block" data-i18n="filterBlock">仅拦截 (Block)</option>
-        <option value="allow" data-i18n="filterAllow">仅放行 (Allow)</option>
+        <option value="all">Block & Allow</option>
+        <option value="block">Block</option>
+        <option value="allow">Allow</option>
       </select>
     </div>
     <div id="log-container">
@@ -346,62 +374,52 @@
   <div id="rules" class="content-section">
     <div id="rule-form">
       <div class="form-group">
-        <label data-i18n="labelFilter" data-i18n-title="tooltipFilter">匹配模式 (URL Filter) &#9432;</label>
-        <input type="text" id="rule-filter" data-i18n-placeholder="placeholderFilter" placeholder="域名或包含通配符的模式">
+        <label data-i18n="labelFilter" data-i18n-title="tooltipFilter">匹配模式 (URL Filter)</label>
+        <input type="text" id="rule-filter" data-i18n-placeholder="placeholderFilter" placeholder="Domain or pattern">
       </div>
 
       <div class="form-group">
         <div style="display: flex; gap: 10px;">
           <div style="flex: 2;">
-            <label data-i18n="labelAction" data-i18n-title="tooltipAction">操作类型 (Action) &#9432;</label>
+            <label data-i18n="labelAction" data-i18n-title="tooltipAction">操作类型 (Action)</label>
             <select id="rule-action">
-              <option value="block" data-i18n="actionBlock">拦截 (Block)</option>
-              <option value="allow" data-i18n="actionAllow">允许 (Allow)</option>
-              <option value="allowAllRequests" data-i18n="actionAllowAll">放行所有 (Allow All)</option>
+              <option value="block">Block</option>
+              <option value="allow">Allow</option>
+              <option value="allowAllRequests">Allow All</option>
             </select>
           </div>
           <div style="flex: 1;">
-            <label data-i18n="labelPriority" data-i18n-title="tooltipPriority">优先级 &#9432;</label>
+            <label data-i18n="labelPriority" data-i18n-title="tooltipPriority">优先级</label>
             <input type="number" id="rule-priority" value="1" min="1" max="100">
           </div>
         </div>
       </div>
 
       <div class="form-group">
-        <label data-i18n="labelResource">资源类型 (Resource Types)</label>
-        <div class="checkbox-group" id="resource-types">
-          <div class="checkbox-item" data-i18n-title="tooltipResMain"><input type="checkbox" value="main_frame"><span
-              data-i18n="resMain">主页面</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResSub"><input type="checkbox" value="sub_frame"
-              checked><span data-i18n="resSub">子框架</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResScript"><input type="checkbox" value="script"
-              checked><span data-i18n="resScript">脚本 (JS)</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResImage"><input type="checkbox" value="image"
-              checked><span data-i18n="resImage">图片</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResStyle"><input type="checkbox" value="stylesheet"><span
-              data-i18n="resStyle">样式表</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResFont"><input type="checkbox" value="font"><span
-              data-i18n="resFont">字体</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResXhr"><input type="checkbox" value="xmlhttprequest"
-              checked><span data-i18n="resXhr">XHR/Fetch</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResPing"><input type="checkbox" value="ping" checked><span
-              data-i18n="resPing">点击跟踪</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResBeacon"><input type="checkbox" value="beacon"
-              checked><span data-i18n="resBeacon">离场统计</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResWs"><input type="checkbox" value="websocket"><span
-              data-i18n="resWs">长连接</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResMedia"><input type="checkbox" value="media"><span
-              data-i18n="resMedia">音视频</span></div>
-          <div class="checkbox-item" data-i18n-title="tooltipResOther"><input type="checkbox" value="other"><span
-              data-i18n="resOther">其他/兜底</span></div>
+        <label id="toggle-resource-types" style="cursor: pointer; display: flex; align-items: center; gap: 5px; user-select: none;">
+          <span data-i18n="labelResource">Resource Types</span>
+          <span id="resource-arrow" style="font-size: 10px; transition: transform 0.2s;">▶</span>
+        </label>
+        <div class="checkbox-group" id="resource-types" style="display: none; margin-top: 5px;">
+          <div class="checkbox-item" data-i18n-title="tooltipResMain"><input type="checkbox" value="main_frame"><span>Main Page</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResSub"><input type="checkbox" value="sub_frame"><span>Sub Frame</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResScript"><input type="checkbox" value="script"><span>Script (JS)</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResImage"><input type="checkbox" value="image"><span>Image</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResStyle"><input type="checkbox" value="stylesheet"><span>Stylesheet</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResFont"><input type="checkbox" value="font"><span>Font</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResXhr"><input type="checkbox" value="xmlhttprequest"><span>XHR/Fetch</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResPing"><input type="checkbox" value="ping"><span>Ping</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResWs"><input type="checkbox" value="websocket"><span>WebSocket</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResMedia"><input type="checkbox" value="media"><span>Media</span></div>
+          <div class="checkbox-item" data-i18n-title="tooltipResOther"><input type="checkbox" value="other"><span>Other</span></div>
         </div>
       </div>
 
-      <button id="add-rule" class="btn btn-primary" data-i18n="btnAddRule">添加动态规则</button>
+      <button id="add-rule" class="btn btn-primary" data-i18n="btnAddRule">Add Rule</button>
 
       <div style="display: flex; gap: 10px; margin-top: 10px;">
-        <button id="export-rules" class="btn btn-secondary" style="flex: 1;" data-i18n="btnExport">导出规则 (JSON)</button>
-        <button id="import-trigger" class="btn btn-secondary" style="flex: 1;" data-i18n="btnImport">导入规则</button>
+        <button id="export-rules" class="btn btn-secondary" style="flex: 1;" data-i18n="btnExport">Export Rules</button>
+        <button id="import-trigger" class="btn btn-secondary" style="flex: 1;" data-i18n="btnImport">Import Rules</button>
       </div>
       <input type="file" id="import-file" style="display: none;" accept=".json">
     </div>
